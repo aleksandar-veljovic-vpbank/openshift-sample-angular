@@ -139,6 +139,7 @@ objects:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: API_URL_WEBSERVICE
+                  value: '${API_URL_WEBSERVICE}'
               image: static-web-app-running-on-nginx
               lifecycle:
                 postStart:
@@ -214,6 +215,10 @@ parameters:
     description: A secret string used to configure the GitHub webhook.
     generate: expression
     from: '[a-zA-Z0-9]{40}'
+    required: true
+  - name: API_URL_WEBSERVICE
+    displayName: URL of the web service
+    description: The web service running on WildFly ending with ".../openshift-sample-webservice"
     required: true
 labels:
   application: modern-web-app
